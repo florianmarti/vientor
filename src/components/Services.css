@@ -1,0 +1,141 @@
+/* Services.css */
+.services {
+  padding: 4rem 0;
+  background: #fff;
+}
+
+.services h2 {
+  text-align: center;
+  color: #1a365d;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.services h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #e53e3e;
+}
+
+.section-intro {
+  text-align: center;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.service-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #e53e3e;
+  margin-bottom: 1rem;
+  background: rgba(229, 62, 62, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card h3 {
+  color: #1a365d;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e53e3e;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.service-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.service-features li {
+  padding: 0.5rem 0;
+  color: #555;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #38a169;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #e53e3e;
+  border: 2px solid #e53e3e;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background: #e53e3e;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .services h2 {
+    font-size: 2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+}
