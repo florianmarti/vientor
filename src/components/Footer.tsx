@@ -32,8 +32,8 @@ const Footer: React.FC = () => {
             <div className="contact-item">
               <FiMapPin />
               <span>
-                Jerusalén 149 Colonia Aquiles Serdán , Venustiano Carranza
-                Centro, Mexico, 15430
+                Calle Rupias 37, Col. Simón Bolívar, Venustiano Carranza,
+                Ciudad de México
               </span>
             </div>
             <div className="contact-item">

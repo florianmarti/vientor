@@ -177,12 +177,12 @@ const Contact: React.FC = () => {
                   <h4>Visítanos</h4>
                   <p className="detail-title">Nuestra Casa de Oración</p>
                   <p className="detail-content">
-                    Jerusalén 149, Col. Aquiles Serdán<br />
-                    Alcaldía Venustiano Carranza, CP 15430<br />
+                    Calle Rupias 37, Col. Simón Bolívar<br />
+                    Alcaldía Venustiano Carranza<br />
                     Ciudad de México
                   </p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Jerus%C3%A1len+149%2C+Aquiles+Serd%C3%A1n%2C+Venustiano+Carranza%2C+15430+Ciudad+de+M%C3%A9xico"
+                    href="https://www.google.com/maps/search/?api=1&query=19.4509452%2C-99.0945326"
                     className="map-link"
                     target="_blank"
                     rel="noopener noreferrer"
