@@ -52,7 +52,13 @@ const Footer: React.FC = () => {
             <a href="#" aria-label="Instagram" className="social-link">
               <FiInstagram />
             </a>
-            <a href="#" aria-label="YouTube" className="social-link">
+            <a
+              href="https://www.youtube.com/@ventorecio"
+              aria-label="YouTube"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FiYoutube />
             </a>
           </div>

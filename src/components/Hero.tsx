@@ -60,7 +60,12 @@ const Hero: React.FC = () => {
                 <FiCalendar />
                 <span>Próximos Eventos</span>
               </a>
-              <a href="#transmision" className="btn btn-tertiary">
+              <a
+                href="https://www.youtube.com/@ventorecio/streams"
+                className="btn btn-tertiary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FiPlayCircle />
                 <span>Ver Transmisión</span>
               </a>

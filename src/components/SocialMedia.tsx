@@ -37,9 +37,9 @@ const SocialMedia: React.FC = () => {
     {
       platform: 'YouTube',
       icon: <FiYoutube />,
-      handle: 'Iglesia Viento Recio TV',
-      followers: '3.2K suscriptores',
-      link: '#',
+      handle: '@ventorecio',
+      followers: 'Canal oficial',
+      link: 'https://www.youtube.com/@ventorecio',
       description: 'Sermones completos, alabanza en vivo y conferencias',
       color: '#FF0000'
     },

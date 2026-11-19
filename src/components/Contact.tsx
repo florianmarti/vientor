@@ -278,7 +278,12 @@ const Contact: React.FC = () => {
                 <a href="https://www.instagram.com/iglesia.vientor" className="social-btn instagram">
                   <FiInstagram /> Instagram
                 </a>
-                <a href="#" className="social-btn youtube">
+                <a
+                  href="https://www.youtube.com/@ventorecio"
+                  className="social-btn youtube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FiYoutube /> YouTube
                 </a>
               </div>
