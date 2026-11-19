@@ -272,10 +272,20 @@ const Contact: React.FC = () => {
             <div className="social-contact-card">
               <h4>Síguenos</h4>
               <div className="social-buttons">
-                <a href="#" className="social-btn facebook">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565627750184"
+                  className="social-btn facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FiFacebook /> Facebook
                 </a>
-                <a href="https://www.instagram.com/iglesia.vientor" className="social-btn instagram">
+                <a
+                  href="https://www.instagram.com/iglesia.vientor/"
+                  className="social-btn instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FiInstagram /> Instagram
                 </a>
                 <a

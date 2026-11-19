@@ -19,9 +19,9 @@ const SocialMedia: React.FC = () => {
     {
       platform: 'Facebook',
       icon: <FiFacebook />,
-      handle: '@IglesiaVientoRecio',
-      followers: '2.5K seguidores',
-      link: '#',
+      handle: 'Viento Recio',
+      followers: 'Página oficial',
+      link: 'https://www.facebook.com/profile.php?id=61565627750184',
       description: 'Transmisiones en vivo, devocionales diarios y noticias de la iglesia',
       color: '#1877F2'
     },
@@ -29,8 +29,8 @@ const SocialMedia: React.FC = () => {
       platform: 'Instagram',
       icon: <FiInstagram />,
       handle: '@iglesia.vientor',
-      followers: '1.8K seguidores',
-      link: '#',
+      followers: 'Cuenta oficial',
+      link: 'https://www.instagram.com/iglesia.vientor/',
       description: 'Historias diarias, testimonios y momentos especiales',
       color: '#E4405F'
     },

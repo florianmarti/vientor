@@ -46,10 +46,22 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className="footer-social">
-            <a href="#" aria-label="Facebook" className="social-link">
+            <a
+              href="https://www.facebook.com/profile.php?id=61565627750184"
+              aria-label="Facebook"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FiFacebook />
             </a>
-            <a href="#" aria-label="Instagram" className="social-link">
+            <a
+              href="https://www.instagram.com/iglesia.vientor/"
+              aria-label="Instagram"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FiInstagram />
             </a>
             <a
