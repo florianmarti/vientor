@@ -553,6 +553,10 @@
   animation: slideIn 0.5s ease;
 }
 
+.success-message.error-message {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
 .success-message svg {
   font-size: 2rem;
 }

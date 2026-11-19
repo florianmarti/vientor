@@ -1,0 +1,22 @@
+<!doctype html>
+<!--
+  Copia oculta del formulario de contacto para que Netlify lo detecte al publicar.
+  React dibuja el formulario con JavaScript y Netlify no lo vería sin este archivo.
+  Los nombres de los campos deben coincidir EXACTAMENTE con src/components/Contact.tsx.
+-->
+<html lang="es">
+  <head><meta charset="UTF-8" /><title>Formularios</title></head>
+  <body>
+    <form name="contacto" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contacto" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+      <input type="text" name="contactMethod" />
+      <input type="text" name="prayerRequest" />
+    </form>
+  </body>
+</html>

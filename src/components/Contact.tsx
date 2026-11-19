@@ -44,6 +44,8 @@ const Contact: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<boolean>(false);
+  const [botField, setBotField] = useState<string>('');
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (
@@ -75,13 +77,33 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulación de envío
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError(false);
+
+    // Envío real con Netlify Forms. Los campos deben coincidir con public/__forms.html.
+    const body = new URLSearchParams({
+      'form-name': 'contacto',
+      'bot-field': botField,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+      contactMethod: formData.contactMethod,
+      prayerRequest: formData.prayerRequest ? 'Sí, urgente' : 'No',
+    });
+
+    try {
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
       setSubmitSuccess(true);
-      
-      // Resetear formulario
       setFormData({
         name: '',
         email: '',
@@ -91,10 +113,13 @@ const Contact: React.FC = () => {
         prayerRequest: false,
         contactMethod: 'email'
       });
-      
-      // Ocultar mensaje de éxito después de 5 segundos
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+      setTimeout(() => setSubmitSuccess(false), 8000);
+    } catch {
+      // No mostramos "enviado" si no se envió: el mensaje sigue en el formulario.
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const quickActions = [
@@ -152,11 +177,16 @@ const Contact: React.FC = () => {
                   <h4>Visítanos</h4>
                   <p className="detail-title">Nuestra Casa de Oración</p>
                   <p className="detail-content">
-                    Calle de la Fe #123, Colonia Esperanza<br />
-                    Ciudad de la Bendición, CP 12345<br />
-                    Estado de Gracia, México
+                    Jerusalén 149, Col. Aquiles Serdán<br />
+                    Alcaldía Venustiano Carranza, CP 15430<br />
+                    Ciudad de México
                   </p>
-                  <a href="#mapa" className="map-link">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Jerus%C3%A1len+149%2C+Aquiles+Serd%C3%A1n%2C+Venustiano+Carranza%2C+15430+Ciudad+de+M%C3%A9xico"
+                    className="map-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Ver en Google Maps <FiArrowRight />
                   </a>
                 </div>
@@ -287,13 +317,39 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Formulario */}
-            <form ref={formRef} onSubmit={handleSubmit} className="contact-form-premium">
+            <form
+              ref={formRef}
+              name="contacto"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="contact-form-premium"
+            >
+              <input type="hidden" name="form-name" value="contacto" />
+              {/* Campo trampa contra spam: las personas no lo ven */}
+              <p hidden>
+                <label>
+                  No llenar: <input name="bot-field" value={botField} onChange={e => setBotField(e.target.value)} />
+                </label>
+              </p>
+
               {submitSuccess && (
-                <div className="success-message">
+                <div className="success-message" role="status">
                   <FiCheckCircle />
                   <div>
                     <strong>¡Mensaje Enviado!</strong>
                     <p>Te contactaremos pronto. Dios te bendiga.</p>
+                  </div>
+                </div>
+              )}
+
+              {submitError && (
+                <div className="success-message error-message" role="alert">
+                  <FiMessageSquare />
+                  <div>
+                    <strong>No se pudo enviar el mensaje</strong>
+                    <p>Revisa tu conexión e inténtalo de nuevo. Tu mensaje sigue escrito abajo.</p>
                   </div>
                 </div>
               )}
@@ -366,6 +422,7 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  maxLength={500}
                   className="animated-textarea"
                   placeholder=" "
                   rows={4}

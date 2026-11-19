@@ -9,6 +9,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    // Sin mapas de código en producción: pesaban 2.5 MB y no los necesita el visitante
+    sourcemap: false
   }
 })
